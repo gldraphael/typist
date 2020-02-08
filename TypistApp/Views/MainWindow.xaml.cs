@@ -20,7 +20,7 @@ namespace TypistApp.Views
 
         private void MainWindow_KeyDown(object sender, Avalonia.Input.KeyEventArgs e)
         {
-            VM.State.RegisterKeyPress();
+            VM.State.RegisterKeyPress(e.Key);
         }
 
         private void InitializeComponent()

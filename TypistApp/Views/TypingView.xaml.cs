@@ -18,7 +18,7 @@ namespace TypistApp.Views
 
         private void TypingView_KeyDown(object sender, KeyEventArgs e)
         {
-            VM.RegisterKeyPress();
+            VM.RegisterKeyPress(e.Key);
         }
 
         private void InitializeComponent()
