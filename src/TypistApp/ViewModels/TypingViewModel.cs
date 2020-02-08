@@ -18,6 +18,7 @@ namespace TypistApp.ViewModels
             if (key is Key.Back) Position--;
             else
             {
+                if (Position < 0) Position = 0;
                 if(Position < CharactersToType.Count)
                 {
                     CharactersToType[Position].RegisterEntry(key);
