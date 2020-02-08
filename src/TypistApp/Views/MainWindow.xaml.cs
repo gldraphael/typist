@@ -15,12 +15,13 @@ namespace TypistApp.Views
 #if DEBUG
             this.AttachDevTools();
 #endif
-            KeyDown += MainWindow_KeyDown;
+            
+            TextInput += MainWindow_TextInput;
         }
 
-        private void MainWindow_KeyDown(object sender, Avalonia.Input.KeyEventArgs e)
+        private void MainWindow_TextInput(object sender, Avalonia.Input.TextInputEventArgs e)
         {
-            VM.State.RegisterKeyPress(e.Key);
+            VM.State.RegisterKeyPress(e.Text);
         }
 
         private void InitializeComponent()

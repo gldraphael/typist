@@ -3,6 +3,7 @@ using Avalonia.Media;
 using ReactiveUI;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace TypistApp.ViewModels
 {
@@ -13,18 +14,18 @@ namespace TypistApp.ViewModels
 
         int Position = 0;
 
-        public void RegisterKeyPress(Key key)
+        public void RegisterKeyPress(string text)
         {
-            if (key is Key.Back) Position--;
-            else
+            foreach (var c in text) RegisterKeyPressForChar(c);
+
+            void RegisterKeyPressForChar(char c)
             {
                 if (Position < 0) Position = 0;
-                if(Position < CharactersToType.Count)
+                if (Position < CharactersToType.Count)
                 {
-                    CharactersToType[Position].RegisterEntry(key);
+                    CharactersToType[Position].RegisterEntry(c);
+                    Position++;
                 }
-                
-                Position++;
             }
         }
 
@@ -56,23 +57,15 @@ namespace TypistApp.ViewModels
             ActualCharacter = c;
         }
 
-        public void RegisterEntry(Key k)
+        public void RegisterEntry(char c)
         {
-            char c = k.ToString()[0];
             EnteredCharacter = c;
 
             this.RaisePropertyChanged(nameof(EnteredCharacter));
             this.RaisePropertyChanged(nameof(BackgroundColor));
         }
 
-        public static ObservableCollection<CharacterToType> GetCharacters(string s)
-        {
-            return new ObservableCollection<CharacterToType>(get(s));
-             
-            IEnumerable<CharacterToType> get(string s)
-            {
-                foreach (var c in s) yield return new CharacterToType(c);
-            }
-        }
+        public static ObservableCollection<CharacterToType> GetCharacters(string s) =>
+            new ObservableCollection<CharacterToType>(s.ToCharArray().Select(c => new CharacterToType(c)));
     }
 }
