@@ -2,6 +2,9 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Version>0.1.0</Version>
+    <Authors>Galdin Raphael</Authors>
+    <RepositoryUrl>https://github.com/gldraphael/typist</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -14,19 +17,8 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
   <ItemGroup>
-    <AvaloniaResource Remove="Views\TypingView.xaml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Views\TypingView.xaml" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.9.3" />
     <PackageReference Include="Avalonia.Desktop" Version="0.9.3" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.3" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\TypingView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>
