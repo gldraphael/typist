@@ -44,9 +44,9 @@ namespace TypistApp.ViewModels
         {
             get
             {
-                if (EnteredCharacter is null) return new SolidColorBrush(Color.Parse("#FFFFFF")); // white
-                else if (EnteredCharacter == ActualCharacter) return new SolidColorBrush(Color.Parse("#D5ECD4")); // green
-                else return new SolidColorBrush(Color.Parse("#F0D2D1")); // red
+                if (EnteredCharacter is null) return new SolidColorBrush();
+                else if (EnteredCharacter == ActualCharacter) return new SolidColorBrush(AppColors.BackgroundGreen);
+                else return new SolidColorBrush(AppColors.BackgroundRed);
             }
         }
 
