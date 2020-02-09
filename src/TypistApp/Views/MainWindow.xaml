@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
         Width="600" Height="450"
+        MinWidth="600" MinHeight="450"
         x:Class="TypistApp.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="TypistApp"
