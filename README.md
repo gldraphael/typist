@@ -4,8 +4,8 @@
 
 ### One time setup
 
-1. Install the .NET Core SDK 3.1.101 LTS
-1. Clone this repo and run the TypistApp project:
+1. Install [.NET Core SDK 3.1.101 (LTS)](https://dotnet.microsoft.com/download/dotnet-core/3.1) for your platform.
+1. Clone this repo:
 
     ```sh
     git clone git@github.com:gldraphael/typist.git
