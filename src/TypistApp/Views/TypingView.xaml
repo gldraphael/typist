@@ -21,23 +21,5 @@
         </ItemsControl.ItemTemplate>
       </ItemsControl>
 
-
-    <WrapPanel>
-      <TextBlock Text="H" FontSize="26" Background="#D5ECD4" />
-      <TextBlock Text="e" FontSize="26" Background="#FFFFFF" />
-      <TextBlock Text="y" FontSize="26" Background="#D5ECD4" />
-      <TextBlock Text="!" FontSize="26" Background="#D5ECD4" />
-      <TextBlock Text=" " FontSize="26" Background="#D5ECD4" />
-      <TextBlock Text="I" FontSize="26" Background="#D5ECD4" />
-      <TextBlock Text="t" FontSize="26" Background="#D5ECD4" />
-      <TextBlock Text="'" FontSize="26" Background="#D5ECD4" />
-      <TextBlock Text="s" FontSize="26" Background="#D5ECD4" />
-      <TextBlock Text=" " FontSize="26" Background="#D5ECD4" />
-      <TextBlock Text="m" FontSize="26" Background="#F0D2D1" />
-      <TextBlock Text="e" FontSize="26" Background="#F0D2D1" />
-      <TextBlock Text="!" FontSize="26" Background="#FFFFFF" />
-    </WrapPanel>
-    
-
   </DockPanel>
 </UserControl>
