@@ -20,13 +20,17 @@ namespace TypistApp.ViewModels
 
             void RegisterKeyPressForChar(char c)
             {
-                if (Position < 0) Position = 0;
                 if (Position < CharactersToType.Count)
                 {
                     CharactersToType[Position].RegisterEntry(c);
                     Position++;
                 }
             }
+        }
+
+        public void RegisterBackspace()
+        {
+            if (Position > 0) Position--;
         }
 
         public TypingViewModel()
