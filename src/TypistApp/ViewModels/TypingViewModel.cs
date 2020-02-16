@@ -8,12 +8,20 @@ namespace TypistApp.ViewModels
 {
     public class TypingViewModel : ViewModelBase
     {
-        public string TextToType => "Hello World!";
+        public string TextToType => "hey there!";
         public ObservableCollection<CharacterToType> CharactersToType { get; private set; }
         public int Mistypes { get; private set; } = 0;
         public DateTime? StartTime { get; private set; }
         public DateTime? EndTime { get; private set; }
-
+        public TimeSpan TimeElapsed
+        {
+            get
+            {
+                if (StartTime is null) return TimeSpan.Zero;
+                if (EndTime is null) return DateTime.UtcNow - StartTime.Value;
+                return EndTime.Value - StartTime.Value;
+            }
+        }
 
         public event EventHandler SessionCompleted;
 

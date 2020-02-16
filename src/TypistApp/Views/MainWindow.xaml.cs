@@ -25,6 +25,7 @@ namespace TypistApp.Views
 
         private void State_SessionCompleted(object sender, System.EventArgs e)
         {
+            VM.UpdateResults();
             Content = VM.Results;
         }
 
