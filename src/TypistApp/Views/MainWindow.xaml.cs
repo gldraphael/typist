@@ -12,6 +12,7 @@ namespace TypistApp.Views
 
         public MainWindow()
         {
+            DataContext = new MainWindowViewModel();
             InitializeComponent();
 #if DEBUG
             this.AttachDevTools();
@@ -19,6 +20,12 @@ namespace TypistApp.Views
             
             TextInput += MainWindow_TextInput;
             KeyDown += MainWindow_KeyDown;
+            VM.State.SessionCompleted += State_SessionCompleted;
+        }
+
+        private void State_SessionCompleted(object sender, System.EventArgs e)
+        {
+            Content = VM.Results;
         }
 
         private void MainWindow_TextInput(object sender, TextInputEventArgs e)
@@ -38,5 +45,7 @@ namespace TypistApp.Views
         {
             AvaloniaXamlLoader.Load(this);
         }
+
+        
     }
 }

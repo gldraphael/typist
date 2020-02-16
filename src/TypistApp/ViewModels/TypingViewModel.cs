@@ -8,7 +8,7 @@ namespace TypistApp.ViewModels
 {
     public class TypingViewModel : ViewModelBase
     {
-        public string TextToType => "Hey there Delilah, what's it like in New York city? I'm a thousand miles away but girl tonight you look so pretty--yes you do. Times Square won't shine as bright you. I swear it's true!";
+        public string TextToType => "Hello World!";
         public ObservableCollection<CharacterToType> CharactersToType { get; private set; }
         public int Mistypes { get; private set; } = 0;
         public DateTime? StartTime { get; private set; }
