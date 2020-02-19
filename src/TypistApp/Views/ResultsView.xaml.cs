@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace TypistApp.Views
 {
-    public class ResultsViewModel : UserControl
+    public class ResultsView : UserControl
     {
-        public ResultsViewModel()
+        public ResultsView()
         {
             this.InitializeComponent();
         }
