@@ -4,5 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
              x:Class="TypistApp.Views.ResultsView">
-  
+
+  <DockPanel>
+    <TextBlock FontWeight="Bold">Time Elapsed: </TextBlock>
+    <TextBlock Text="{Binding TimeElapsedText}" />
+
+    <TextBlock FontWeight="Bold">Net WPM: </TextBlock>
+    <TextBlock Text="{Binding NetWPM}" />
+
+    <TextBlock FontWeight="Bold">Time Elapsed: </TextBlock>
+    <TextBlock Text="{Binding TimeElapsedText}" />
+
+    <TextBlock FontWeight="Bold">Accuracy: </TextBlock>
+    <TextBlock Text="{Binding Accuracy}" />
+    
+    
+  </DockPanel>
+
+
 </UserControl>
