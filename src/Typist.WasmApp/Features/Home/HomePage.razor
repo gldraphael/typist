@@ -1,0 +1,20 @@
+﻿@page "/"
+@using Typist.WasmApp.Models
+@inject HttpClient http 
+
+@if (quotes is not null)
+{
+    <div>@quotes[0].Text</div>
+
+    <textarea rows="6" class="w-full" />
+}
+
+
+@code {
+    private List<Quote>? quotes = null;
+    protected async override Task OnInitializedAsync()
+    {
+        if (quotes is not null) return;
+        quotes = await http.GetFromJsonAsync<List<Quote>>("api/v0/quotes.json");
+    }
+}

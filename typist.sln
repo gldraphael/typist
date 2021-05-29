@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypistApp", "src\TypistApp\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1C8BDE71-47B6-4E88-9CAE-D7F2C31D540F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypistApp.Tests", "tests\TypistApp.Tests\TypistApp.Tests.csproj", "{305D8A8A-21FD-4749-88A1-F6944F416EF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypistApp.Tests", "tests\TypistApp.Tests\TypistApp.Tests.csproj", "{305D8A8A-21FD-4749-88A1-F6944F416EF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typist.WasmApp", "src\Typist.WasmApp\Typist.WasmApp.csproj", "{E5549895-B386-4748-A9C7-4785D6923F51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Typist.WasmApp", "src\Typist.WasmApp\Typist.WasmApp.csproj", "{E5549895-B386-4748-A9C7-4785D6923F51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
