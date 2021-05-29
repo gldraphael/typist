@@ -1,0 +1,19 @@
+﻿<div class="flex items-center justify-center h-screen">
+    <div class="p-12 bg-white rounded-lg max-w-screen-md">
+        @if (Quote is not null)
+        {
+            <div class="text-2xl">@Quote.Text</div>
+        }
+        else
+        {
+            <div>Loading...</div>
+        }
+    </div>
+</div>
+
+
+
+
+@code {
+    [Parameter] public Quote? Quote { get; set; }
+}
