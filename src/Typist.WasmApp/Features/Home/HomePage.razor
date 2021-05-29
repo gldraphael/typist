@@ -1,12 +1,12 @@
 ﻿@page "/"
-@using Typist.WasmApp.Models
 @inject HttpClient http 
 
 @if (quotes is not null)
 {
-    <div>@quotes[0].Text</div>
 
-    <textarea rows="6" class="w-full" />
+    <QuoteView Quote="@quotes[0]" />
+
+    @*<textarea rows="6" class="w-full" autofocus />*@
 }
 
 
