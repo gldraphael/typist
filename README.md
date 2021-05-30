@@ -1,6 +1,6 @@
 # typist
 
-> ⌨ A free, native, fully-offline, cross-platform app to help learn and practice touch-typing.
+> ⌨ A quote typing app
 
 ## Quickstart
 

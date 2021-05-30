@@ -6,9 +6,69 @@
     "year": "1890"
   },
   {
-    "text": "Good artists exist simply in what they make, and consequently are perfectly uninteresting in what they are. A great poet, a really great poet, is the most unpoetical of all. He lives the poetry that he cannot write. The others write the poetry that they dare not realize.",
+    "text": "Society—-civilized society, at least-—is never very ready to believe anything to the detriment of those who are both rich and fascinating. It feels instinctively that manners are of more importance than morals, and, in its opinion, the highest respectability is of much less value than the possession of a good chef.",
     "source": "The Picture of Dorian Gray",
     "author": "Oscar Wilde",
     "year": "1890"
+  },
+  {
+    "text": "If you've been up all night and cried till you have no more tears left in you—you will know that there comes in the end a sort of quietness. You feel as if nothing was ever going to happen again.",
+    "source": "The Lion, the Witch and the Wardrobe",
+    "author": "C. S. Lewis",
+    "year": "1950"
+  },
+  {
+    "text": "What mattered were individual relationships, and a completely helpless gesture, an embrace, a tear, a word spoken to a dying man, could have value in itself.",
+    "source": "1984",
+    "author": "George Orwell",
+    "year": "1949"
+  },
+  {
+    "text": "Some people, when they have taken too much and have been driven beyond the point of endurance, simply crumble and give up. There are others, though they are not many, who will for some reason always be unconquerable. You meet them in time of war and also in time of peace. They have an indomitable spirit and nothing, neither pain nor torture nor threat of death, will cause them to give up.",
+    "source": "The Wonderful Story of Henry Sugar and Six More",
+    "author": "Roald Dahl",
+    "year": "1977"
+  },
+  {
+    "text": "Some of them even got up and bowed right to the ground before him, though they fell over with the effort, and could not get on their legs again for some time.",
+    "source": "The Hobbit",
+    "author": "J. R. R. Tolkein",
+    "year": "1937"
+  },
+  {
+    "text": "Nobody meant to be unkind, but nobody put themselves out of their way to secure her comfort.",
+    "source": "Mansfield Park",
+    "author": "Jane Austen",
+    "year": "1814"
+  },
+  {
+    "text": "Freedom is only part of the story and half of the truth. Freedom is but the negative aspect of the whole phenomenon whose positive aspect is responsibleness. In fact, freedom is in danger of degenerating into mere arbitrariness unless it is lived in terms of responsibleness.",
+    "source": "Man's Search For Meaning",
+    "author": "Victor E Frankl",
+    "year": "1946"
+  },
+  {
+    "text": "They will want you to succeed, but never more than them. They will write their names on your leash and call you necessary, call you urgent.",
+    "source": "On Earth We're Briefly Gorgeous'",
+    "author": "Ocean Vuong",
+    "year": "2019"
+  },
+  {
+    "text": "Be who you are and be that well.",
+    "source": "Introduction to the Devout Life",
+    "author": "Francis de Sales",
+    "year": "1609"
+  },
+  {
+    "text": "Many that live deserve death. And some that die deserve life. Can you give it to them? Then do not be too eager to deal out death in judgement.",
+    "source": "The Fellowship of the Ring (The Lord of the Rings, Book 1)",
+    "author": "J. R. R. Tolkein",
+    "year": "1954"
+  },
+  {
+    "text": "Language is the ultimate participatory democracy. To put it in technological terms, language is humanity’s most spectacular open source project.",
+    "source": "Because Internet, Understanding how language is changing",
+    "author": "Gretchen McCulloch",
+    "year": "2019"
   }
 ]
