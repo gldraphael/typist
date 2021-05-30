@@ -1,5 +1,19 @@
 @inherits LayoutComponentBase
+@inject EventBus EventBus
 
-<div>
+<div tabindex="0" @onkeyup="HandleKeyUp">
     @Body
 </div>
+
+@code {
+
+    void HandleKeyUp(KeyboardEventArgs e)
+    {
+        EventBus.RaiseKeyDownEvent(e);
+    }
+
+    public void Dispose()
+    {
+
+    }
+}

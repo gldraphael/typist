@@ -1,12 +1,15 @@
 ﻿@page "/"
-@inject HttpClient http 
+@inject HttpClient http
 
 @if (quotes is not null)
 {
+    <div class="flex flex-col items-center justify-center h-screen max-w-screen-md mx-auto">
+        <QuoteView Quote="@quotes[0]" />
 
-    <QuoteView Quote="@quotes[0]" />
-
-    @*<textarea rows="6" class="w-full" autofocus />*@
+        <div class="p-12 w-full">
+            <TypingInput />
+        </div>
+    </div>
 }
 
 

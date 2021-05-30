@@ -1,19 +1,76 @@
-﻿<div class="flex items-center justify-center h-screen">
-    <div class="p-12 bg-white rounded-lg max-w-screen-md">
-        @if (Quote is not null)
-        {
-            <div class="text-2xl">@Quote.Text</div>
-        }
-        else
-        {
-            <div>Loading...</div>
-        }
-    </div>
+﻿@inject EventBus EventBus
+@implements IDisposable
+
+
+<div class="p-12 bg-white rounded-lg">
+    @if (Quote is not null)
+    {
+        <div class="text-2xl">
+            @foreach(var c in _characters)
+            {
+                string aClass = c.State switch
+                {
+                    CharState.Right => "bg-green-200",
+                    CharState.Wrong => "bg-red-200",
+                    _ => string.Empty
+                };
+
+                <span class="@aClass">@c.Character</span>
+            }
+        </div>
+    }
+    else
+    {
+        <div>Loading...</div>
+    }
 </div>
 
 
 
 
 @code {
-    [Parameter] public Quote? Quote { get; set; }
+    private Quote? _quote;
+    private ViewChar[] _characters = new ViewChar[0];
+    private int index = 0;
+
+    [Parameter] public Quote? Quote
+    {
+        get => _quote;
+        set { _quote = value; ResetViewCharacters(); }
+    }
+
+
+    public void OnTextInput(string text)
+    {
+        foreach(var c in text)
+        {
+            if(_characters[index].Character == c) _characters[index].State = CharState.Right;
+            else _characters[index].State = CharState.Wrong;
+
+            index++;
+        }
+        StateHasChanged();
+    }
+
+    protected override void OnInitialized()
+    {
+        EventBus.OnTextInput += OnTextInput;
+    }
+
+    private void ResetViewCharacters()
+    {
+        if (_quote is null) return;
+        _characters = _quote.Text.ToCharArray().Select(c => new ViewChar(c)).ToArray();
+    }
+
+    public void Dispose()
+    {
+        EventBus.OnTextInput -= OnTextInput;
+    }
+
+    private record ViewChar(char Character)
+    {
+        public CharState State { get; set; } = CharState.Empty;
+    }
+    private enum CharState { Empty, Right, Wrong }
 }
