@@ -1,0 +1,35 @@
+﻿@inject EventBus EventBus
+
+<input type="text" autofocus autocomplete="off" placeholder="Type here..."
+       class="w-full"
+       @oninput="HandleOnChange" />
+
+@code {
+
+    string oldText = string.Empty;
+
+
+    private void HandleOnChange(ChangeEventArgs args)
+    {
+        var text = args.Value as string;
+
+        // do nothing if the text box is empty
+        if (text is null) return;
+
+        // don't raise an event if the text was deleted
+        if (text.Length < oldText.Length)
+        {
+            oldText = text;
+            return;
+        }
+
+        string newText;
+        if (oldText == string.Empty) newText = text;
+        else newText = text.Replace(oldText, string.Empty);
+
+        oldText = text;
+
+
+        EventBus.RaiseTextInputEvent(newText);
+    }
+}
