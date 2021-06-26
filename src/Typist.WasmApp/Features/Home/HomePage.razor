@@ -4,7 +4,7 @@
 @if (quotes is not null)
 {
     <div class="flex flex-col items-center justify-center h-screen max-w-screen-md mx-auto">
-        <QuoteView Quote="@quotes[0]" />
+        <QuoteView Quote="@quotes[quoteIndex]" />
 
         <div class="p-12 w-full">
             <TypingInput />
@@ -15,9 +15,12 @@
 
 @code {
     private List<Quote>? quotes = null;
+    int quoteIndex = 0;
+
     protected async override Task OnInitializedAsync()
     {
         if (quotes is not null) return;
         quotes = await http.GetFromJsonAsync<List<Quote>>("api/v0/quotes.json");
+        quoteIndex = new Random((int) DateTime.UtcNow.Ticks).Next(minValue: 0, maxValue: quotes?.Count ?? 0 - 1);
     }
 }
