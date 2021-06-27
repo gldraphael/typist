@@ -1,6 +1,12 @@
 ﻿@inject EventBus EventBus
 @implements IDisposable
 
+@if (Quote is not null)
+{
+    <span class="text-4xl">@(_accuracy * 100)%</span>
+    <span>Completed: @_isComplete</span>
+}
+
 
 <div class="p-12 bg-white rounded-lg">
     @if (Quote is not null)
@@ -33,6 +39,15 @@
     private ViewChar[] _characters = new ViewChar[0];
     private int index = 0;
 
+    private float _accuracy = 1f;
+    private float _accuracyHitPerCharacter = 0f; // accuracy hit a wrong character would take
+
+    private bool _isComplete = false;
+
+    private DateTime? _startTime;
+    private DateTime? _endTime;
+
+
     [Parameter] public Quote? Quote
     {
         get => _quote;
@@ -42,12 +57,26 @@
 
     public void OnTextInput(string text)
     {
+        if (_isComplete) return;
+
         foreach(var c in text)
         {
-            if(_characters[index].Character == c) _characters[index].State = CharState.Right;
-            else _characters[index].State = CharState.Wrong;
+            if (_characters[index].Character == c)
+            {
+                _characters[index].State = CharState.Right;
+            }
+            else
+            {
+                _characters[index].State = CharState.Wrong;
+                _accuracy -= _accuracyHitPerCharacter;
+            }
 
             index++;
+            if(index == _characters.Length)
+            {
+                _isComplete = true;
+                break;
+            }
         }
         StateHasChanged();
     }
@@ -61,6 +90,7 @@
     {
         if (_quote is null) return;
         _characters = _quote.Text.ToCharArray().Select(c => new ViewChar(c)).ToArray();
+        _accuracyHitPerCharacter = 1f / _characters.Length;
     }
 
     public void Dispose()
