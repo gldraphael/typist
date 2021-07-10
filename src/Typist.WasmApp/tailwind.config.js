@@ -1,5 +1,11 @@
 module.exports = {
-  purge: [],
+  purge: {
+    content: [
+      './**/*.html',
+      './**/*.razor',
+      './**/**/*.razor',
+    ],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
