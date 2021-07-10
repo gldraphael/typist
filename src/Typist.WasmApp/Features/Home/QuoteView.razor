@@ -12,7 +12,7 @@
     @if (Quote is not null)
     {
         <div class="text-2xl">
-            @foreach(var c in _characters)
+            @foreach (var c in _characters)
             {
                 string aClass = c.State switch
                 {
@@ -24,6 +24,12 @@
                 <span class="@aClass">@c.Character</span>
             }
         </div>
+        <p class="text-right text-gray-500">
+            @Quote.Author
+        </p>
+        <p class="text-right text-gray-300">
+            @Quote.Source &middot; @Quote.Year
+        </p>
     }
     else
     {
