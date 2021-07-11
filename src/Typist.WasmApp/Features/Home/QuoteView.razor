@@ -3,12 +3,14 @@
 
 @if (Quote is not null)
 {
-    <span class="text-4xl">@(_accuracy * 100)%</span>
-    <span>Completed: @_isComplete</span>
+<div class="px-12 py-4 bg-green-100 rounded-t-lg w-full flex place-items-center">
+    <span class="flex-grow text-xl"><span class="text-gray-500 font-bold">Accuracy:</span> @((_accuracy * 100).ToString("0.##"))%</span>
+    <span class="text-4xl">@NetWpm wpm</span>
+</div>
 }
 
 
-<div class="p-12 bg-white rounded-lg">
+<div class="p-12 bg-white rounded-b-lg">
     @if (Quote is not null)
     {
         <div class="text-2xl">
@@ -24,12 +26,8 @@
                 <span class="@aClass">@c.Character</span>
             }
         </div>
-        <p class="text-right text-gray-500">
-            @Quote.Author
-        </p>
-        <p class="text-right text-gray-300">
-            @Quote.Source &middot; @Quote.Year
-        </p>
+        <p class="text-right text-gray-500">@Quote.Author</p>
+        <p class="text-right text-gray-300">@Quote.Source &middot; @Quote.Year</p>
     }
     else
     {
@@ -52,7 +50,7 @@
 
     private DateTime? _startTime;
     private DateTime? _endTime;
-
+    private int NetWpm => GetNetWpm();
 
     [Parameter] public Quote? Quote
     {
@@ -78,7 +76,9 @@
             }
 
             index++;
-            if(index == _characters.Length)
+            if (_startTime is null) _startTime = DateTime.UtcNow;
+            _endTime = DateTime.UtcNow;
+            if (index == _characters.Length)
             {
                 _isComplete = true;
                 break;
@@ -102,6 +102,20 @@
     public void Dispose()
     {
         EventBus.OnTextInput -= OnTextInput;
+    }
+
+    private int GetNetWpm()
+    {
+        const int AVG_WORD_LENGTH = 5;
+
+        if (_startTime is null) return 0;
+
+        var charactersOfInterest = _characters.Where(c => c.State is not CharState.Empty);
+        if (!charactersOfInterest.Any()) return 0;
+
+        var currentTime = _endTime ?? DateTime.UtcNow;
+        var wpm = (int)Math.Ceiling((charactersOfInterest.Count() / AVG_WORD_LENGTH) / (currentTime - _startTime.Value).TotalMinutes);
+        return wpm <= 0 ? 0 : wpm;
     }
 
     private record ViewChar(char Character)
