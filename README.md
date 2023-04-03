@@ -8,7 +8,7 @@ Visit <https://typist.galdin.dev> to play!
 
 ### Setting up your development machine
 
-1.  Install the latest [.NET Core 5 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0) for your platform.
+1. Install the latest [.NET Core 7 SDK](https://dotnet.microsoft.com/download/dotnet/7.0) for your platform.
 1. Clone this repo:
 
     ```sh
